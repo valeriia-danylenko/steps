@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "3ffc968b-b603-4bd2-a992-2fa97882ec13",
+		"name": "Steps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29993820"
+	},
+	"item": [
+		{
+			"name": "Steps",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first\": \"1\",\r\n    \"steps\": {\r\n        \"1\": {\r\n            \"type\": \"request\",\r\n            \"params\": {\r\n                \"url\": \"http://localhost:3001/accept\",\r\n                \"method\": \"POST\"\r\n            },\r\n            \"next\": \"2\"\r\n        },\r\n        \"2\": {\r\n            \"type\": \"condition\",\r\n            \"conditionStr\": \"if (result.accepted) return true\",\r\n            \"next\": \"3\",\r\n            \"nextFalse\": \"4\"\r\n        },\r\n        \"3\": {\r\n            \"type\": \"request\",\r\n            \"params\": {\r\n                \"url\": \"http://localhost:3001/result/positive\",\r\n                \"method\": \"GET\"\r\n            }\r\n        },\r\n        \"4\": {\r\n            \"type\": \"request\",\r\n            \"params\": {\r\n                \"url\": \"http://localhost:3001/result/negative\",\r\n                \"method\": \"GET\"\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/steps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"steps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
